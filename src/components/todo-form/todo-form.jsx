@@ -8,6 +8,17 @@ export const TodoForm = () => {
 
   const handleAddTodo = () => {
     // Fix the app to display list of all tasks
+    if (!task.trim()) {
+      return;
+    }
+    const newTodo = {
+      id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 0,
+      label: task.trim(),
+      checked: false,
+    };
+
+    setTodos([...todos, newTodo]);
+    setTask('');
   };
 
   const handleKeyUp = (e) => {
