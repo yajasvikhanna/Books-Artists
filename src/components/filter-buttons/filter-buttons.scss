@@ -1,20 +1,30 @@
 .filter-buttons {
-    margin-bottom: 1rem;
-    display: flex;
-    gap: 0.5rem;
-  
-    button {
-      padding: 0.5rem 1rem;
-      background-color: #eee;
-      border: 1px solid #ccc;
-      cursor: pointer;
-      border-radius: 4px;
-  
-      &.active {
-        background-color: #007bff;
-        color: white;
-        border-color: #007bff;
-      }
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+
+  button {
+    padding: 0.6rem 1.2rem;
+    background-color: #f3f4f6; // soft neutral background
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #374151;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      background-color: #e5e7eb; // subtle hover
+    }
+
+    &.active {
+      background-color: #6366f1; // vibrant indigo
+      color: #ffffff;
+      border-color: #6366f1;
+      box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
     }
   }
-  
+}

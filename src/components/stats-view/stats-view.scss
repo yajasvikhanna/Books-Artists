@@ -1,7 +1,37 @@
 .stats-view {
-    background: #f0f4f8;
-    padding: 12px;
-    margin-bottom: 1rem;
-    border-radius: 8px;
+  background: #2d3250; // deep navy background
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  color: #f1f5f9; // light text color for readability
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(255, 51, 122, 0.15); // subtle pink shadow for flair
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #343a6e; // slightly lighter on hover
   }
-  
+
+  .stat {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    span:first-child {
+      font-size: 0.875rem;
+      color: #94a3b8; // muted label text
+      font-weight: 500;
+    }
+
+    span:last-child {
+      font-size: 1.25rem;
+      color: #ffffff;
+    }
+  }
+}

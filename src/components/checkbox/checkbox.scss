@@ -2,40 +2,57 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 400px;
-  margin: 0 auto 5px;
-  cursor: pointer;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: background 0.3s ease;
 
-  &-content {
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 5px 10px 5px 5px;
-
-    input {
-      margin-right: 5px;
-    }
-
-    &:hover {
-      background: rgb(245, 245, 245);
-    }
+  &:hover {
+    background: #f3f4f6;
   }
 
-  &-delete {
-    background: rgb(200, 200, 200);
-    border: none;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
+  &-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    color: #111827;
+    font-weight: 500;
 
-    &:hover {
-      background: rgb(172, 172, 172);
+    input[type='checkbox'] {
+      width: 18px;
+      height: 18px;
+      accent-color: #4f46e5; // modern indigo
+      cursor: pointer;
     }
   }
 
   &-checked {
     text-decoration: line-through;
+    color: #6b7280;
+  }
+
+  &-delete {
+    background: transparent;
+    border: none;
+    color: #dc2626; // bold red
+    font-size: 1.2rem; // make the icon bigger
+    font-weight: bold; // bolder font
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(220, 38, 38, 0.1); // red-ish hover
+    }
   }
 }
