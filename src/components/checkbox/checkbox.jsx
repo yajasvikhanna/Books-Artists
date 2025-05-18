@@ -8,9 +8,8 @@ export const Checkbox = ({
     <div
       tabIndex="0"
       role="checkbox"
-      aria-checked
+      aria-checked={checked}
       className="checkbox-content"
-      onClick={onClick}
       onKeyUp={onKeyUp}
     >
       <input tabIndex="-1" type="checkbox" checked={checked} onChange={onClick} />

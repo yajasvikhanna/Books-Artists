@@ -1,31 +1,114 @@
 .todo-list {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(1,1,1,0.1);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   &-title {
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 20px;
     text-transform: uppercase;
     text-align: center;
-    display: block;
-    border-bottom: 1px solid rgba(1,1,1,0.1);
-    padding: 5px 0;
-    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    color: #333;
   }
 
   &-content {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 10px;
-    align-items: center;
-
+    gap: 0.75rem;
+    align-items: stretch;
+    max-width: 600px;
+    margin: 0 auto;
   }
+}
+
+.todo-item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #f1f3f5;
+  }
+}
+
+.todo-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.edit-button,
+.save-button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.edit-button {
+  background: #e9f5ff;
+  color: #007bff;
+  border-color: #b6e0fe;
+}
+
+.edit-button:hover {
+  background: #d0ecff;
+}
+
+.save-button {
+  background: #e6f4ea;
+  color: #28a745;
+  border-color: #c7e8cf;
+}
+
+.save-button:hover {
+  background: #d4f0db;
 }
 
 .no-todos {
   text-align: center;
-  padding: 5px 0;
-  font-size: 14px;
-  color: gray;
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: #888;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+
+  span {
+    font-size: 1rem;
+    color: #333;
+  }
 }
