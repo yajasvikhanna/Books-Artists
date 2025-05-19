@@ -1,3 +1,9 @@
+# 📝 React To-Do App Challenge
+
+![App Preview](./Books&Artists.gif)
+
+This is a functional To-Do Application built using ReactJS...
+
 * Includes instructions to run the app locally.
 * Provides a fix for the `ERR_OSSL_EVP_UNSUPPORTED` error.
 * Explains what to do if someone wants to evaluate your submission manually.
