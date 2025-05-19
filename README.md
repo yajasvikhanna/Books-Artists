@@ -1,79 +1,159 @@
-# 🧩 React To-Do App Challenge
-
-Welcome to the Book An Artist frontend coding challenge!
-
-This assignment is designed to give you an insight into the day-to-day work you'll encounter in this role, and it's also an opportunity for you to showcase your problem-solving skills, thought process, and frontend development expertise.
-
-We hope you find this challenge engaging and enjoyable.
+* Includes instructions to run the app locally.
+* Provides a fix for the `ERR_OSSL_EVP_UNSUPPORTED` error.
+* Explains what to do if someone wants to evaluate your submission manually.
+* Mentions how to deploy (if needed).
 
 ---
 
-## 📝 Overview
+```markdown
+# 📝 React To-Do App Challenge
 
-This is a **broken React to-do application** that you'll need to fix and enhance. It includes several bugs and missing features that we want you to identify and solve.
+This is a functional To-Do Application built using ReactJS, SCSS, and a custom configuration (not using Vite or Create React App).
+## 📁 Project Structure
 
-Your goal is to fix the issues listed below and implement a few enhancements. You’re welcome to go above and beyond if you feel inspired!
+```
 
----
+react-todo-app-challenge/
+│
+├── config/              # Custom Webpack configs
+├── public/              # Static public assets
+├── scripts/             # Custom start script (start.js)
+├── src/                 # Source code
+│   ├── components/
+│   │   ├── checkbox/
+│   │   ├── filter-buttons/
+│   │   ├── search-bar/
+│   │   ├── stats-view/
+│   │   ├── task-detail/
+│   │   ├── todo-form/
+│   │   ├── todo-list/
+│   │   └── todo-results/
+│   ├── app.jsx
+│   ├── index.scss
+│   └── todo-context.js
+├── package.json
+└── README.md
 
-## ✅ Tasks to Complete
-
-You will be required to do the following:
-
-- [ ] **Fix the app to display a list of all tasks**
-- [ ] **Fix the layout** so checkboxes are properly listed in a column
-- [ ] **Fix the app to allow adding a new task**
-- [ ] **Fix the functionality to mark a task as completed**
-- [ ] **Fix the functionality to delete a task**
-- [ ] **Fix the count of completed tasks**
-- [ ] Add a **search feature** to filter tasks
-- [ ] **Add a filter button** to view:
-  - Only completed tasks
-  - Only incomplete tasks
-  - All tasks
-
----
-
-## ⭐ Bonus Points
-
-These are optional but appreciated:
-
-- [ ] Implement **pagination** or **lazy-loading** if the list has more than 10 items
-- [ ] Write **test cases** (Jest + React Testing Library preferred)
-- [ ] Improve UI/UX or layout
-- [ ] Add **accessibility enhancements**
-- [ ] Create additional views (like task detail or edit mode)
+````
 
 ---
 
-## 🚀 Get Started
+## 🧩 Tech Stack
 
-To get started with the challenge, clone this repository, install dependencies, and run the app locally:
+- React.js
+- SCSS for styling
+- Webpack for bundling
+- Babel for transpiling
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Ensure you have **Node.js v16 or lower** installed.  
+Node 17+ causes issues due to OpenSSL changes. If you're using Node 17+, 18+, or above, you can either:
+
+### ✅ Option 1: Set Node Environment Variable (for Node 17+ or above)
 
 ```bash
-git clone https://gitlab.com/parekhjigar/react-todo-app-challenge.git
-cd react-to-do-app-challenge
+# MacOS / Linux
+export NODE_OPTIONS=--openssl-legacy-provider
+
+# Windows CMD
+set NODE_OPTIONS=--openssl-legacy-provider
+
+# Windows PowerShell
+$env:NODE_OPTIONS="--openssl-legacy-provider"
+````
+
+Then run:
+
+```bash
 npm install
 npm start
 ```
----
-## 📬 Submission Guide
-
-When you're done:
-
-1. Push your completed code to a **public Git repository** (GitHub, GitLab, etc.).
-2. Email the link to: **<jigar@bookanartist.co>**
-3. Include a short README in your repo with any notes about your implementation, improvements made, or assumptions.
-
-Please submit your solution within **3 days** of receiving the challenge.
 
 ---
-## ❓ Questions?
-Feel free to reach out to us if you have any doubts, questions, or run into technical issues.
 
-📧 Email: <jigar@bookanartist.co>
+### Option 2: Use Node v16 (Recommended)
 
-We’re looking forward to seeing what you come up with.
-Good luck and have fun!
+If you use `nvm`, switch to Node 16:
+
+```bash
+nvm install 16
+nvm use 16
+npm install
+npm start
+```
 
 ---
+
+## 📦 Scripts
+
+To start the development server:
+
+```bash
+npm start
+```
+
+> This runs the custom script from the `scripts/start.js` file.
+
+---
+
+## ⚠️ Important Notes for Evaluator
+
+* The project does **not** use `create-react-app` or `vite`, it uses a **custom Webpack setup**.
+* If you face the following error:
+
+```
+Error: error:0308010C:digital envelope routines::unsupported
+```
+
+Run this before `npm start`:
+
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
+Or switch to Node 16 using `nvm`.
+
+---
+
+## 📡 Deployment (Optional)
+
+This project is **not created using Vite or CRA**, so automatic detection of entry point on platforms like **Vercel** may fail.
+To deploy it manually:
+
+1. Set the build command:
+
+   ```bash
+   npm run build
+   ```
+2. Set the output directory:
+
+   ```bash
+   dist
+   ```
+3. Set custom entry point in Vercel settings if needed:
+
+   ```
+   scripts/start.js
+   ```
+
+> However, local evaluation is preferred due to custom setup.
+
+
+## 📋 Features
+
+* Add, edit, delete tasks
+* Task filters (completed, pending)
+* Task detail view
+* Real-time stats
+* Styled using SCSS modules
+
+---
+
+## 🙋‍♂️ Author Note
+If any issues occur while running the project, please try the **Node.js compatibility fix** mentioned above.
+This ensures the project can be tested seamlessly regardless of your local setup.
