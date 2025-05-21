@@ -11,9 +11,33 @@ import '../filter-buttons/filter-buttons.scss';
 import { SearchBar } from '../search-bar/search-bar';
 import { StatsView } from '../stats-view/stats-view';
 import { TaskDetail } from '../task-detail/task-detail';
+import  axios from 'axios';
 
 export const TodoList = () => {
   const { todos, setTodos } = React.useContext(TodosContext);
+
+  React.useEffect(() => {
+    let todoObj = [];
+    let api_url = "https://jsonplaceholder.typicode.com/todos";
+  
+    axios.get(api_url)
+      .then((response) => {
+        const data = response.data;
+        data.forEach((item) => {
+          let id = item.id;
+          let label = item.title;
+          let checked = item.completed;
+          todoObj.push({ id, label, checked });
+        });
+  
+        setTodos((prev) => [...prev, ...todoObj]);
+      })
+      .catch((err) => {
+        console.error("Error fetching todos:", err);
+      });
+  }, []);
+  
+
 
   const handleDelete = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
@@ -34,6 +58,11 @@ export const TodoList = () => {
     }
     return true;
   });
+
+  useEffect(()=>{
+      localStorage.setItem('todo', JSON.stringify(todos));
+      console.log()
+  }, [todos])
 
   const searchedTodos = filteredTodos.filter(
     (todo) => todo.label.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -77,6 +106,11 @@ export const TodoList = () => {
     setEditValue(currentLabel);
   };
 
+   useEffect(()=>{
+    const localtodos= JSON.parse(localStorage.getItem('todo') || []);
+     setTodos(localtodos)
+   },[]);
+   
   const saveEdit = () => {
     if (!editValue.trim()) {
       setEditingId(null);
